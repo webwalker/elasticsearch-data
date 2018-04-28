@@ -2,7 +2,7 @@ elasticsearch6的一个demo系统，包括创建，搜索索引（分组，分�
 
 1.先搭建好elasticsearch，搭建参考网上教程 
 2.创建es_test数据库，执行doc下的ss_ware_resource_info.sql 
-3.程序里面有两个运行类 CreateESIndexService:创建索引类 SearchESIndexService：搜索索引类 分别执行即可
+3.开发工具idea安装lombok插件，程序里面有两个运行类 CreateESIndexService:创建索引类 SearchESIndexService：搜索索引类 分别执行即可
 
 创建截图如下：
 [main] INFO com.dayainfo.ssp.service.CreateESIndexService - 一共163416条记录

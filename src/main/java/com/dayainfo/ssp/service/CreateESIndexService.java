@@ -101,6 +101,9 @@ public class CreateESIndexService {
                     logger.info("已索引" + count + "条记录");
                 }
                 if (i % COUNT_SPLIT == 0) {
+                    //select unit_id unit_id,resource_id resource_id,res_ware_id res_ware_id_simple,title title_IK,basic_id_contact basic_id_contact_IK,basic_id_contact basic_id_contact_simple,
+                    // basic_id_creator basic_id_creator_simple,basic_id_keyword basic_id_keyword_IK,basic_id_keyword basic_id_keyword_simple,year year,basic_description basic_description_IK
+                    // from ss_ware_resource_info  limit ?,?
                     ssWareResourceInfoModelList = JdbcTemplateUtil.queryList(resultSql, modelClass, page * COUNT_SPLIT, COUNT_SPLIT);
                     addBatchResult2Index(ssWareResourceInfoModelList);
                     logger.info("已索引" + page * COUNT_SPLIT + "条记录");

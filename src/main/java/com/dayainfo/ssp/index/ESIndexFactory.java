@@ -6,9 +6,10 @@ import com.dayainfo.ssp.util.PropertiesUtil;
 import com.dayainfo.ssp.util.StringUtil;
 import com.dayainfo.ssp.yaml.YAMlRead;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
-import org.elasticsearch.action.admin.indices.delete.DeleteIndexResponse;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsResponse;
 import org.elasticsearch.action.admin.indices.mapping.put.PutMappingRequest;
+import org.elasticsearch.action.delete.DeleteResponse;
+import org.elasticsearch.action.support.master.AcknowledgedResponse;
 import org.elasticsearch.client.ClusterAdminClient;
 import org.elasticsearch.client.IndicesAdminClient;
 import org.elasticsearch.client.Requests;
@@ -165,7 +166,7 @@ public class ESIndexFactory {
      * @return
      */
     public static boolean deleteIndex(String indexName) {
-        DeleteIndexResponse deleteResponse = getAdminClient()
+        AcknowledgedResponse deleteResponse = getAdminClient()
                 .prepareDelete(indexName.toLowerCase())
                 .execute()
                 .actionGet();
